@@ -17,5 +17,15 @@ export default function QueryProcessor(query: string): string {
     return "muskanm";
   }
 
+  if (query.includes("which of the following numbers is the largest:")) {
+    const numberPattern = /[-]?\d+(\.\d+)?/g;
+    const numbers = query.match(numberPattern)?.map(Number) || [];
+    if (numbers.length === 0) {
+      return "No numbers found.";
+    }
+    const max = Math.max(...numbers);
+    return max.toString();
+  }
+
   return "";
 }
