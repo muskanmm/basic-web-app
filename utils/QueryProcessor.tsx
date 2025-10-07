@@ -28,7 +28,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("plus")) {
-    const match = query.match(/what is (\d+) plus (\d+)/);
+    const match = query.match(/(\d+)\s*plus\s*(\d+)/i);
     if (match) {
       const a = parseInt(match[1], 10);
       const b = parseInt(match[2], 10);
