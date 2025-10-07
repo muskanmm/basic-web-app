@@ -17,7 +17,7 @@ export default function QueryProcessor(query: string): string {
     return "muskanm";
   }
 
-  if (query.includes("largest")) {
+  if (query.toLowerCase().includes("largest")) {
     const numberPattern = /[-]?\d+(\.\d+)?/g;
     const numbers = query.match(numberPattern)?.map(Number) || [];
     if (numbers.length === 0) {
@@ -27,7 +27,7 @@ export default function QueryProcessor(query: string): string {
     return max.toString();
   }
 
-  if (query.includes("plus")) {
+  if (query.toLowerCase().includes("plus")) {
     const match = query.match(/what is (\d+) plus (\d+)/);
     if (match) {
       const a = parseInt(match[1], 10);
