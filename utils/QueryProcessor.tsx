@@ -27,7 +27,7 @@ export default function QueryProcessor(query: string): string {
     return max.toString();
   }
 
-  if (query.match(/what is \d+ plus \d+/)) {
+  if (query.includes("plus")) {
     const match = query.match(/what is (\d+) plus (\d+)/);
     if (match) {
       const a = parseInt(match[1], 10);
